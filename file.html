@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy 9/9, Omar ❤️</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <style>
+    :root {
+      --navy: #080b24;
+      --purple: #241044;
+      --pink: #f15b91;
+      --gold: #ffd982;
+      --white: #fffaf4;
+      --muted: #cfc9dd;
+      --glass: rgba(255, 255, 255, 0.09);
+      --border: rgba(255, 255, 255, 0.16);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      overflow-x: hidden;
+      color: var(--white);
+      background:
+        radial-gradient(circle at 15% 10%, rgba(111, 63, 185, .3), transparent 28%),
+        radial-gradient(circle at 85% 18%, rgba(241, 91, 145, .2), transparent 26%),
+        linear-gradient(135deg, #07091d, #160a32 52%, #090a24);
+      font-family: "Cairo", sans-serif;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: .28;
+      background-image:
+        radial-gradient(circle, #fff 1px, transparent 1.5px),
+        radial-gradient(circle, #ffd982 1px, transparent 1.5px);
+      background-size: 135px 135px, 210px 210px;
+      background-position: 20px 30px, 80px 100px;
+      animation: stars 18s linear infinite;
+      z-index: -1;
+    }
+
+    @keyframes stars {
+      from { transform: translateY(0); }
+      to { transform: translateY(-135px); }
+    }
+
+    .screen {
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      padding: 28px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .opening {
+      text-align: center;
+      transition: opacity .8s ease, transform .8s ease;
+    }
+
+    .opening.hidden {
+      opacity: 0;
+      transform: scale(1.08);
+      pointer-events: none;
+      position: absolute;
+    }
+
+    .eyebrow {
+      color: var(--gold);
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      font-size: .75rem;
+      margin-bottom: 20px;
+    }
+
+    h1, h2, h3 {
+      font-family: "Playfair Display", serif;
+      font-weight: 600;
+    }
+
+    .opening h1 {
+      max-width: 760px;
+      font-size: clamp(2.5rem, 8vw, 6.5rem);
+      line-height: 1.04;
+      text-shadow: 0 0 35px rgba(255, 217, 130, .2);
+      margin-bottom: 32px;
+    }
+
+    .opening h1 span {
+      color: var(--pink);
+    }
+
+    button {
+      border: 0;
+      cursor: pointer;
+      color: #26122e;
+      font: inherit;
+      font-weight: 700;
+      border-radius: 999px;
+      padding: 15px 25px;
+      background: linear-gradient(135deg, var(--gold), #fff1bb);
+      box-shadow: 0 10px 35px rgba(255, 217, 130, .25);
+      transition: transform .25s ease, box-shadow .25s ease;
+    }
+
+    button:hover {
+      transform: translateY(-4px) scale(1.03);
+      box-shadow: 0 15px 42px rgba(255, 217, 130, .4);
+    }
+
+    .gift {
+      font-size: 4rem;
+      margin-bottom: 20px;
+      animation: giftFloat 2.5s ease-in-out infinite;
+    }
+
+    @keyframes giftFloat {
+      50% { transform: translateY(-12px) rotate(4deg); }
+    }
+
+    .main-content {
+      display: none;
+      opacity: 0;
+      animation: appear 1.2s .3s forwards;
+    }
+
+    .main-content.visible {
+      display: block;
+    }
+
+    @keyframes appear {
+      to { opacity: 1; }
+    }
+
+    .hero {
+      min-height: 100vh;
+      text-align: center;
+      display: grid;
+      place-items: center;
+      padding: 100px 22px 70px;
+    }
+
+    .hero-inner {
+      max-width: 920px;
+    }
+
+    .hero h2 {
+      font-size: clamp(2.6rem, 7vw, 6.4rem);
+      line-height: 1.06;
+      margin-bottom: 25px;
+    }
+
+    .hero h2 span {
+      color: var(--pink);
+    }
+
+    .hero-text {
+      max-width: 700px;
+      margin: auto;
+      color: var(--muted);
+      font-size: clamp(1rem, 2vw, 1.35rem);
+    }
+
+    .date-orbit {
+      width: 145px;
+      height: 145px;
+      border: 1px solid rgba(255, 217, 130, .45);
+      border-radius: 50%;
+      margin: 35px auto;
+      display: grid;
+      place-items: center;
+      position: relative;
+      box-shadow: 0 0 45px rgba(255, 217, 130, .18);
+    }
+
+    .date-orbit::before,
+    .date-orbit::after {
+      content: "✦";
+      color: var(--gold);
+      position: absolute;
+      animation: orbit 5s linear infinite;
+    }
+
+    .date-orbit::after {
+      animation-delay: -2.5s;
+      color: var(--pink);
+    }
+
+    @keyframes orbit {
+      from { transform: rotate(0) translateX(80px) rotate(0); }
+      to { transform: rotate(360deg) translateX(80px) rotate(-360deg); }
+    }
+
+    .date-orbit strong {
+      font-family: "Playfair Display", serif;
+      font-size: 2.8rem;
+      color: var(--gold);
+    }
+
+    section {
+      max-width: 1100px;
+      margin: auto;
+      padding: 95px 22px;
+    }
+
+    .section-heading {
+      text-align: center;
+      margin-bottom: 38px;
+    }
+
+    .section-heading h2 {
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      margin-bottom: 10px;
+    }
+
+    .section-heading p {
+      color: var(--muted);
+    }
+
+    .message-card,
+    .surprise-card {
+      position: relative;
+      max-width: 850px;
+      margin: auto;
+      padding: clamp(25px, 6vw, 60px);
+      border: 1px solid var(--border);
+      border-radius: 30px;
+      background:
+        linear-gradient(135deg, rgba(255,255,255,.13), rgba(255,255,255,.04));
+      box-shadow: 0 25px 80px rgba(0,0,0,.25);
+      backdrop-filter: blur(16px);
+      overflow: hidden;
+    }
+
+    .message-card::before,
+    .surprise-card::before {
+      content: "❤";
+      position: absolute;
+      right: 30px;
+      top: 15px;
+      color: rgba(241, 91, 145, .18);
+      font-size: 7rem;
+      transform: rotate(15deg);
+    }
+
+    .message-card p {
+      position: relative;
+      z-index: 1;
+      font-size: clamp(1.05rem, 2vw, 1.35rem);
+      line-height: 2;
+      color: #fff5f3;
+    }
+
+    .arabic {
+      direction: rtl;
+      text-align: right;
+    }
+
+    .memories {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .memory-card {
+      min-height: 260px;
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      overflow: hidden;
+      position: relative;
+      background: var(--glass);
+      transition: transform .35s ease, box-shadow .35s ease;
+      cursor: pointer;
+    }
+
+    .memory-card:hover,
+    .memory-card.active {
+      transform: translateY(-10px) rotate(1deg);
+      box-shadow: 0 20px 45px rgba(241, 91, 145, .18);
+    }
+
+    .memory-photo {
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(145deg, rgba(108, 48, 145, .85), rgba(241, 91, 145, .48)),
+        url("https://images.unsplash.com/photo-1511632765486-a01980e01a18?auto=format&fit=crop&w=900&q=80")
+        center / cover;
+      filter: saturate(.75);
+      transition: transform .5s ease;
+    }
+
+    .memory-card:nth-child(2) .memory-photo {
+      background:
+        linear-gradient(145deg, rgba(22, 41, 95, .8), rgba(241, 91, 145, .35)),
+        url("https://images.unsplash.com/photo-1527529482837-4698179dc6ce?auto=format&fit=crop&w=900&q=80")
+        center / cover;
+    }
+
+    .memory-card:nth-child(3) .memory-photo {
+      background:
+        linear-gradient(145deg, rgba(47, 22, 82, .8), rgba(255, 217, 130, .3)),
+        url("https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=900&q=80")
+        center / cover;
+    }
+
+    .memory-card:hover .memory-photo,
+    .memory-card.active .memory-photo {
+      transform: scale(1.1);
+    }
+
+    .memory-content {
+      position: absolute;
+      inset: auto 0 0;
+      padding: 25px;
+      background: linear-gradient(transparent, rgba(5, 5, 25, .92));
+    }
+
+    .memory-content h3 {
+      font-size: 1.5rem;
+    }
+
+    .memory-content p {
+      color: #eee;
+      font-size: .9rem;
+    }
+
+    .reasons {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 14px;
+    }
+
+    .reason {
+      min-height: 165px;
+      padding: 20px 14px;
+      text-align: center;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      background: rgba(255,255,255,.07);
+      transition: all .3s ease;
+      cursor: pointer;
+    }
+
+    .reason:hover,
+    .reason.active {
+      background: linear-gradient(145deg, rgba(241,91,145,.3), rgba(255,217,130,.12));
+      transform: translateY(-8px);
+    }
+
+    .reason .icon {
+      display: block;
+      font-size: 2.2rem;
+      margin-bottom: 10px;
+    }
+
+    .reason p {
+      display: none;
+      color: var(--muted);
+      font-size: .85rem;
+      line-height: 1.5;
+      margin-top: 8px;
+    }
+
+    .reason.active p {
+      display: block;
+    }
+
+    .surprise-card {
+      text-align: center;
+    }
+
+    .surprise-card h2 {
+      font-size: clamp(2rem, 5vw, 3.7rem);
+      margin-bottom: 22px;
+    }
+
+    .last-message {
+      display: none;
+      position: relative;
+      z-index: 1;
+      margin-top: 30px;
+      color: var(--gold);
+      font-family: "Playfair Display", serif;
+      font-size: clamp(1.5rem, 4vw, 2.4rem);
+      line-height: 1.5;
+      animation: reveal .8s ease forwards;
+    }
+
+    .last-message.visible {
+      display: block;
+    }
+
+    @keyframes reveal {
+      from { opacity: 0; transform: scale(.8); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    .final {
+      text-align: center;
+      padding: 130px 22px 80px;
+    }
+
+    .final h2 {
+      color: var(--pink);
+      font-size: clamp(2.5rem, 7vw, 5.5rem);
+      margin-bottom: 15px;
+    }
+
+    .final p {
+      color: var(--muted);
+      margin-bottom: 28px;
+    }
+
+    .music-toggle {
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      z-index: 10;
+      width: 48px;
+      height: 48px;
+      padding: 0;
+      font-size: 1.2rem;
+      background: rgba(255,255,255,.13);
+      color: white;
+      border: 1px solid var(--border);
+      backdrop-filter: blur(10px);
+    }
+
+    .floating-heart {
+      position: fixed;
+      bottom: -40px;
+      pointer-events: none;
+      animation: floatHeart linear forwards;
+      z-index: 20;
+    }
+
+    @keyframes floatHeart {
+      to {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+
+    .confetti {
+      position: fixed;
+      width: 9px;
+      height: 15px;
+      top: -20px;
+      z-index: 30;
+      pointer-events: none;
+      animation: fall 3.2s linear forwards;
+    }
+
+    @keyframes fall {
+      to {
+        transform: translateY(110vh) rotate(720deg);
+        opacity: 0;
+      }
+    }
+
+    @media (max-width: 800px) {
+      .memories {
+        grid-template-columns: 1fr;
+      }
+
+      .memory-card {
+        min-height: 220px;
+      }
+
+      .reasons {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .reason:last-child {
+        grid-column: span 2;
+      }
+    }
+
+    @media (max-width: 450px) {
+      .screen {
+        padding: 20px;
+      }
+
+      .reasons {
+        grid-template-columns: 1fr;
+      }
+
+      .reason:last-child {
+        grid-column: auto;
+      }
+
+      section {
+        padding: 70px 18px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main>
+    <div class="screen opening" id="opening">
+      <div>
+        <div class="gift">🎁</div>
+        <p class="eyebrow">A little surprise for you</p>
+        <h1>Hey Omar… <span>👀</span><br />I made something special for you.</h1>
+        <button id="openButton">Open Your Surprise 🎁</button>
+      </div>
+    </div>
+
+    <div class="main-content" id="mainContent">
+      <header class="hero">
+        <div class="hero-inner">
+          <p class="eyebrow">September 9 · 9/9</p>
+          <h2>Happy Birthday,<br /><span>Omar Imam! 🎂❤️</span></h2>
+          <p class="hero-text">
+            9/9 isn't just another day…<br />
+            It's the day someone really special was born.
+          </p>
+
+          <div class="date-orbit">
+            <strong>9/9</strong>
+          </div>
+
+          <a href="#message">
+            <button>Keep Reading ↓</button>
+          </a>
+        </div>
+      </header>
+
+      <section id="message">
+        <div class="section-heading">
+          <p class="eyebrow">From the heart</p>
+          <h2>A Message For You ❤️</h2>
+        </div>
+
+        <article class="message-card">
+          <p class="arabic">
+            عمر، كل سنة وإنت طيب يا صاحبي ❤️
+          </p>
+          <br />
+          <p>
+            مش عارف أقولك قد إيه وجودك في حياتي فارق، وقد إيه أنا ممتن لكل
+            الذكريات والضحك والمواقف اللي بينا.
+          </p>
+          <p>
+            يارب السنة الجديدة من عمرك تكون أحلى من كل اللي فات، وتحقق فيها
+            كل حاجة نفسك فيها.
+          </p>
+          <p>
+            فضل دايمًا الشخص اللي بيخلّي الأيام أحلى بوجوده.
+            <br />
+            Happy Birthday, bro! 🎉❤️
+          </p>
+        </article>
+      </section>
+
+      <section>
+        <div class="section-heading">
+          <p class="eyebrow">The good times</p>
+          <h2>Our Memories 📸</h2>
+          <p>Tap a memory to bring it to life.</p>
+        </div>
+
+        <div class="memories">
+          <article class="memory-card">
+            <div class="memory-photo"></div>
+            <div class="memory-content">
+              <h3>The chaos</h3>
+              <p>Somehow, the most random moments became the best ones.</p>
+            </div>
+          </article>
+
+          <article class="memory-card">
+            <div class="memory-photo"></div>
+            <div class="memory-content">
+              <h3>The laughs</h3>
+              <p>Still wondering how we find so many reasons to laugh.</p>
+            </div>
+          </article>
+
+          <article class="memory-card">
+            <div class="memory-photo"></div>
+            <div class="memory-content">
+              <h3>More to come</h3>
+              <p>This space is waiting for one of our next unforgettable memories.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section>
+        <div class="section-heading">
+          <p class="eyebrow">No explanation needed</p>
+          <h2>Reasons You're Awesome</h2>
+          <p>Click each one.</p>
+        </div>
+
+        <div class="reasons">
+          <article class="reason">
+            <span class="icon">😂</span>
+            <h3>The laughs</h3>
+            <p>Even the worst days get better when you are around.</p>
+          </article>
+
+          <article class="reason">
+            <span class="icon">🤣</span>
+            <h3>Crazy memories</h3>
+            <p>Normal is overrated anyway.</p>
+          </article>
+
+          <article class="reason">
+            <span class="icon">❤️</span>
+            <h3>Always there</h3>
+            <p>You show up when it matters. That means everything.</p>
+          </article>
+
+          <article class="reason">
+            <span class="icon">🔥</span>
+            <h3>Unforgettable</h3>
+            <p>Life is never boring when you are part of the story.</p>
+          </article>
+
+          <article class="reason">
+            <span class="icon">🤝</span>
+            <h3>Amazing friend</h3>
+            <p>Honestly, one of the best people I know.</p>
+          </article>
+        </div>
+      </section>
+
+      <section>
+        <div class="surprise-card">
+          <h2>Wait… there's one more thing 👀</h2>
+          <button id="lastSurprise">One Last Surprise 🎁</button>
+
+          <div class="last-message" id="lastMessage">
+            Omar, I hope this year gives you everything you deserve.<br />
+            Keep smiling, keep dreaming, and keep being you.<br />
+            Happy Birthday, legend! ❤️🎂
+          </div>
+        </div>
+      </section>
+
+      <footer class="final">
+        <h2>Happy 9/9, Omar ❤️</h2>
+        <p>Made with ❤️ just for you.</p>
+        <button id="replay">Watch the Surprise Again 🔄</button>
+      </footer>
+    </div>
+  </main>
+
+  <button class="music-toggle" id="musicToggle" aria-label="Toggle music">🔇</button>
+
+  <audio id="birthdayMusic" loop>
+    <!-- Replace this source with your own birthday instrumental if desired -->
+    <source src="" type="audio/mpeg" />
+  </audio>
+
+  <script>
+    const opening = document.getElementById("opening");
+    const mainContent = document.getElementById("mainContent");
+    const openButton = document.getElementById("openButton");
+    const replay = document.getElementById("replay");
+    const lastSurprise = document.getElementById("lastSurprise");
+    const lastMessage = document.getElementById("lastMessage");
+    const musicToggle = document.getElementById("musicToggle");
+    const music = document.getElementById("birthdayMusic");
+
+    function createConfetti(amount = 100) {
+      const colors = ["#ffd982", "#f15b91", "#a98cff", "#ffffff", "#61d8ff"];
+
+      for (let i = 0; i < amount; i++) {
+        const piece = document.createElement("span");
+        piece.className = "confetti";
+        piece.style.left = Math.random() * 100 + "vw";
+        piece.style.background = colors[Math.floor(Math.random() * colors.length)];
+        piece.style.animationDelay = Math.random() * 1.2 + "s";
+        piece.style.transform = `rotate(${Math.random() * 360}deg)`;
+        document.body.appendChild(piece);
+
+        setTimeout(() => piece.remove(), 4500);
+      }
+    }
+
+    function createHeart() {
+      const heart = document.createElement("span");
+      heart.className = "floating-heart";
+      heart.textContent = ["❤️", "💖", "✨", "💫"][Math.floor(Math.random() * 4)];
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.fontSize = 14 + Math.random() * 22 + "px";
+      heart.style.animationDuration = 5 + Math.random() * 5 + "s";
+      document.body.appendChild(heart);
+
+      setTimeout(() => heart.remove(), 11000);
+    }
+
+    function startSurprise() {
+      opening.classList.add("hidden");
+
+      setTimeout(() => {
+        mainContent.classList.add("visible");
+        window.scrollTo({ top: 0, behavior: "smooth" });
+        createConfetti(150);
+      }, 500);
+    }
+
+    openButton.addEventListener("click", startSurprise);
+
+    replay.addEventListener("click", () => {
+      mainContent.classList.remove("visible");
+      opening.classList.remove("hidden");
+      lastMessage.classList.remove("visible");
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+
+    document.querySelectorAll(".memory-card").forEach(card => {
+      card.addEventListener("click", () => card.classList.toggle("active"));
+    });
+
+    document.querySelectorAll(".reason").forEach(reason => {
+      reason.addEventListener("click", () => reason.classList.toggle("active"));
+    });
+
+    lastSurprise.addEventListener("click", () => {
+      lastMessage.classList.add("visible");
+      lastSurprise.style.display = "none";
+      createConfetti(120);
+    });
+
+    let musicPlaying = false;
+
+    musicToggle.addEventListener("click", () => {
+      if (!music.src || music.src.endsWith(window.location.href)) {
+        musicToggle.textContent = "🎵";
+        musicToggle.title = "Add an audio file to enable music";
+        return;
+      }
+
+      if (musicPlaying) {
+        music.pause();
+        musicToggle.textContent = "🔇";
+      } else {
+        music.play();
+        musicToggle.textContent = "🔊";
+      }
+
+      musicPlaying = !musicPlaying;
+    });
+
+    setInterval(createHeart, 1800);
+  </script>
+</body>
+</html>
